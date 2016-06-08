@@ -1,0 +1,54 @@
+﻿@model DropdownList_Example.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>DropDownList :</label>
+                @Html.DropDownList("ddl1", Model.CategoryList, "--- Select ---", new {@class = "form-control"})
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>DropDownListFor :</label>
+                @Html.DropDownListFor(m => m.Id, new SelectList(Model.CategoryList, "Value", "Text"), "--- Select ---", new {@class = "form-control"})
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>DropDownList with ViewBag :</label>
+                @Html.DropDownList("ddl2", ViewBag.VBCategoryList as SelectList, "--- Select ---", new {@class = "form-control"})
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>DropDownList with Hardcode :</label>
+                @Html.DropDownList("ddl3", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "SmartPhone", Value = "1"},
+                    new SelectListItem {Text = "Tablet", Value = "2"},
+                    new SelectListItem {Text = "Laptop", Value = "3"},
+                    new SelectListItem {Text = "SmartWatch", Value = "4"},
+                }, "--- Select ---", new {@class = "form-control"})
+            </div>
+        </div>
+    </div>
+
+</div>
+
